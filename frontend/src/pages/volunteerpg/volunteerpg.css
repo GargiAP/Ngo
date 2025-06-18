@@ -1,0 +1,178 @@
+/* Global box-sizing reset */
+* {
+    box-sizing: border-box;
+  }
+  
+  .login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px 50px;
+    background: linear-gradient(180deg, #00D9FF 0%, #03417F 100%);
+    min-height: 100vh;
+  }  
+
+
+  .page-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+    color: #032b55;
+    font-weight: bold;
+  }
+  .register-main-btn {
+    background-color:rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(10px); 
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    margin: 20px auto;
+    display: block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-main-btn:hover {
+    background-color: #002c5c;
+  }
+  
+  
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 50px 44px; 
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px; 
+  }
+  
+  .login-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    color: #000;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    word-wrap: break-word;
+    max-width: 500px;
+    width: 105%;
+    position: relative; /* avoid z-index if not needed */
+    z-index: 1; /* or remove this if unnecessary */
+    }
+    
+  
+  
+  .login-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+  }
+  
+  .blog-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .login-title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: #003366;
+    font-weight: bold;
+  }
+  
+  .login-card p {
+    font-size: 14.5px;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  .date-time {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .register-btn {
+    padding: 10px 20px;
+    background-color:rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(10px); 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    align-self: flex-start;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-btn:hover {
+    background-color: #002c5c;
+  }
+  
+  .login-card p strong {
+    color: #003366;
+  }
+  
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width:550;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 9999; 
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  min-width: 450px;
+  width: 50%;
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.3s ease;
+}
+
+.close-icon:hover {
+  color: #e74c3c;
+}
