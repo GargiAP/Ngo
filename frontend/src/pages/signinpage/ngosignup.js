@@ -1,25 +1,12 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { FaUser, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaLock } from "react-icons/fa";
 import "./signinpage.css";
-import {
-  FaUser,
-  FaEnvelope,
-  FaPhoneAlt,
-  FaMapMarkerAlt,
-  FaLock,
-} from "react-icons/fa";
 
-function NGOsignup() {
-  const navigate = useNavigate();
-
-  const handleClose = () => {
-    navigate('/');
-  };
-
+function NGOsignup({ onClose }) {
   return (
     <div className="signin-container">
       <div className="signin-card">
-        <button className="popup-close" onClick={handleClose}>×</button>
+        <button className="popup-close" onClick={onClose}>×</button>
 
         <h2>NGO Sign Up</h2>
 
