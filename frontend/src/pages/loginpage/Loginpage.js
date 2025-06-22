@@ -16,12 +16,9 @@ const LoginPage = () => {
         <div className="row">
           <div className="input-container">
             <FaUser className="icon" />
-            <input type="text" placeholder="Set Password" required />
+            <input type="text" placeholder="Enter Password" required />
           </div>
-          <div className="input-container">
-            <FaLock className="icon" />
-            <input type="text" placeholder="Confirm Password" required />
-          </div>
+         
         </div>
 
         
