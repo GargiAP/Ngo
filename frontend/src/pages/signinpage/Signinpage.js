@@ -16,7 +16,7 @@ function SigninPage({ onClose }) {
       <div className="signin-card">
         <button className="popup-close" onClick={onClose}>×</button>
 
-        <h2>Sign Up</h2>
+        <h2>Volunteer Sign Up</h2>
 
         <div className="input-container">
           <FaUser className="icon" />
