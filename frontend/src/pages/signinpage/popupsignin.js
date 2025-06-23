@@ -12,7 +12,9 @@ const PopupSignUpPage = ({ onClose, onNGOSignUp ,onVolunteerSignUp }) => {
 
         <div className="popup-options">
           <button className="popup-button" onClick={onNGOSignUp}>NGO</button>
+          <form action="/user" method="post">
           <button className="popup-button" onClick={onVolunteerSignUp}>Volunteer</button>
+          </form>
         </div>
       </div>
     </div>
