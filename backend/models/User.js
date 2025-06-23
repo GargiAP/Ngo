@@ -28,6 +28,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Address is required"],
   },
+  age: {
+    type: String,
+    required: function () {
+    return this.role === 'volunteer';
+  }
+  },
+  gender: {
+    type: String,
+    required: function () {
+    return this.role === 'volunteer';
+  }
+  },
   role: {
     type: String,
     enum: ["ngo", "volunteer"],
