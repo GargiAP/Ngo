@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
-// 🔍 Add this debug log:
-console.log("Mongo URI:", process.env.MONGO_URI); // Check if .env is loading
 
 const app = express();
 const PORT = process.env.PORT || 5000;

@@ -6,10 +6,23 @@ async function handleUserSignup(req,res) {
     name,
     email,
     password,
+    age,
+    contact
   });
   return res.render("home");
 }
 
+async function handleUserLogin(rq,res){
+    const {email,password} = req.body;
+    await User.create({
+        email,
+        password
+    });
+    return res.render("home");
+}
+
 module.exports = {
-    handleUserSignup
+    handleUserSignup,handleUserLogin
 };
+
+

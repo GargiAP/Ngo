@@ -19,8 +19,11 @@ function NGOsignup({ onClose }) {
       [e.target.name]: e.target.value
     }));
   };
+   
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match.");
       return;
