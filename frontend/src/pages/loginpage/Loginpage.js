@@ -19,11 +19,28 @@ const LoginPage = () => {
       const data = await res.json();
       if (res.ok) {
         alert("Login successful");
-        console.log(data);
-      } else {
+        //to store the role across pages 
+        localStorage.setItem('user', JSON.stringify(data.user));
+        //to enter the profile pfp according to the role 
+        if(data.user.role==='ngo')
+        {
+          window.location.href='/ngo-dashboard';
+        }
+        else if(data.user.role==='volunteer')
+        {
+          window.location.href='/volunteer-dashboard';
+        }
+        else
+        {
+          alert('unknown role');
+        }
+
+        }
+      else {
         alert(data.message || "Login failed");
       }
-    } catch (err) {
+    }
+     catch (err) {
       console.error(err);
       alert("Server error");
     }
