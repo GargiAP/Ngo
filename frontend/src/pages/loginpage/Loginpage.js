@@ -20,7 +20,6 @@ const LoginPage = () => {
       if (res.ok) {
         alert("Login successful");
         console.log(data);
-        // Redirect or store token if using JWT
       } else {
         alert(data.message || "Login failed");
       }
@@ -56,6 +55,8 @@ const LoginPage = () => {
             required
           />
         </div>
+
+      
 
         <button className="signup-button" type="submit">Login</button>
 
