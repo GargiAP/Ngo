@@ -2,6 +2,7 @@
 const User = require('../models/User')
 const bcrypt = require('bcryptjs');
 
+//signup logic for ngo
 async function handleUserSignupNgo(req,res) {
   const {name,email,contact,password,address} = req.body;
 try{
@@ -41,8 +42,34 @@ const existingUser = await User.findOne({ email });
   //return res.render("home");
 }
 
+//signup logic for volunteer
+async function handleUserSignupVolunteer (req,res){
+  const{name,email,contact,password,address,age,gender} = req.body;
+  try{
+    const userexists=await User.findOne({email});
+    if(userexists){
+      return res.status(500).json({message: "user exists"});
+    }
+    await User.create({
+    name,
+    email,
+    password,
+    contact,
+    age,
+    gender,
+    address,
+    role: "volunteer"
+    })
+    res.status(201).json({message:"volunteer registered successfully yaayy"});
+  }catch(err){
+    console.error(err);
+    res.status(500).json({message:"server error sryyy"});
+
+  }
+}
 
 
+//login logic for volunteer and ngo
 async function handleUserLogin(req,res){
     const {email,password} = req.body;
    if(!email || !password)
@@ -72,7 +99,7 @@ async function handleUserLogin(req,res){
 
 
 module.exports = {
-    handleUserSignupNgo,handleUserLogin
+    handleUserSignupNgo,handleUserLogin,handleUserSignupVolunteer
 };
 
 
