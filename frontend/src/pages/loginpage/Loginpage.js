@@ -19,28 +19,17 @@ const LoginPage = () => {
       const data = await res.json();
       if (res.ok) {
         alert("Login successful");
-        //to store the role across pages 
-        localStorage.setItem('user', JSON.stringify(data.user));
-        //to enter the profile pfp according to the role 
-        if(data.user.role==='ngo')
-        {
-          window.location.href='/ngo-dashboard';
-        }
-        else if(data.user.role==='volunteer')
-        {
-          window.location.href='/volunteer-dashboard';
-        }
-        else
-        {
-          alert('unknown role');
-        }
 
-        }
-      else {
+        // Save user info and login status
+        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('isLoggedIn', 'true');
+
+        // Redirect to home page
+        window.location.href = '/';
+      } else {
         alert(data.message || "Login failed");
       }
-    }
-     catch (err) {
+    } catch (err) {
       console.error(err);
       alert("Server error");
     }
@@ -72,8 +61,6 @@ const LoginPage = () => {
             required
           />
         </div>
-
-      
 
         <button className="signup-button" type="submit">Login</button>
 
