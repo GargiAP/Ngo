@@ -10,7 +10,7 @@ import {
   FaStethoscope,
 } from "react-icons/fa";
 
-const VolunteerForm = () => {
+const VolunteerForm = ({ eventId, onClose, onRegistered }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,12 +31,13 @@ const VolunteerForm = () => {
       const res = await fetch("http://localhost:5000/api/volunteer/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({ ...formData, eventId }) // send eventId too
       });
 
       const data = await res.json();
       if (res.ok) {
         alert("Volunteer registered successfully!");
+        onRegistered(); // callback to mark as registered
       } else {
         alert(data.message || "Registration failed");
       }

@@ -8,9 +8,10 @@ function Volunteerpg() {
   const [showForm, setShowForm] = useState(false);
   const [showEventForm, setShowEventForm] = useState(false);
   const [blogPosts, setBlogPosts] = useState([]);
+  const [selectedEventId, setSelectedEventId] = useState(null);
+  const [registeredEvents, setRegisteredEvents] = useState([]);
   const userRole = localStorage.getItem('userRole');
 
-  // 🔁 Fetch events from MongoDB
   const fetchEvents = async () => {
     try {
       const res = await fetch('http://localhost:5000/api/events');
@@ -47,7 +48,16 @@ function Volunteerpg() {
               <div className="date-time">
                 <p><strong>Date:</strong> {post.date} | <strong>Time:</strong> {post.time}</p>
               </div>
-              <button className="register-btn" onClick={() => setShowForm(true)}>Register Now</button>
+              <button
+                className="register-btn"
+                onClick={() => {
+                  setSelectedEventId(post._id);
+                  setShowForm(true);
+                }}
+                disabled={registeredEvents.includes(post._id)}
+              >
+                {registeredEvents.includes(post._id) ? "Registered" : "Register Now"}
+              </button>
             </div>
           ))}
         </div>
@@ -56,7 +66,14 @@ function Volunteerpg() {
       {showForm && (
         <div className="modal-overlay" onClick={() => setShowForm(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <VolunteerForm />
+            <VolunteerForm
+              eventId={selectedEventId}
+              onClose={() => setShowForm(false)}
+              onRegistered={() => {
+                setRegisteredEvents([...registeredEvents, selectedEventId]);
+                setShowForm(false);
+              }}
+            />
             <span className="close-icon" onClick={() => setShowForm(false)}>&times;</span>
           </div>
         </div>
