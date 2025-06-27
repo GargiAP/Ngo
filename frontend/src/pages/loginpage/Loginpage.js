@@ -18,15 +18,21 @@ const LoginPage = () => {
 
       const data = await res.json();
       if (res.ok) {
-        alert("Login successful");
+    alert("Login successful");
 
-        // Save user info and login status
-        localStorage.setItem('user', JSON.stringify(data.user));
-        localStorage.setItem('isLoggedIn', 'true');
+    // Save user info and login status
+    localStorage.setItem('user', JSON.stringify(data.user));
+    localStorage.setItem('isLoggedIn', 'true');
 
-        // Redirect to home page
-        window.location.href = '/';
-      } else {
+    // Save role explicitly
+    if (data.user && data.user.role) {
+      localStorage.setItem('userRole', data.user.role.toLowerCase());
+    }
+
+    // Redirect
+    window.location.href = '/';
+  }
+  else {
         alert(data.message || "Login failed");
       }
     } catch (err) {

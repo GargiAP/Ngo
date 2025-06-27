@@ -8,6 +8,8 @@ function Volunteerpg() {
 
   const [showForm, setShowForm] = useState(false);
   const [showEventForm, setShowEventForm] = useState(false);
+  const userRole = localStorage.getItem('userRole');
+
 
   const blogPosts = [
     {
@@ -79,9 +81,13 @@ function Volunteerpg() {
       <Navbar />
       <div className="login-wrapper">
       <h2 className="page-title">Lists of NGO Events</h2>
-      <button className="register-main-btn" onClick={() => setShowEventForm(true)}>
-      Register Event
-      </button>
+      
+      {userRole === 'ngo' && (
+          <button className="register-main-btn" onClick={() => setShowEventForm(true)}> 
+            Register Event
+          </button>
+        )}
+        
 
         <div className="blog-grid">
           {blogPosts.map((post) => (
