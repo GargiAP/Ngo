@@ -10,7 +10,10 @@ app.use(cors());
 app.use(express.json());
 
 const authRoutes = require('./routes/authRoutes');
+const eventRoutes = require('./routes/eventRoutes');
+
 app.use('/api/auth', authRoutes);
+app.use('/api', eventRoutes);
 
 mongoose.connect(process.env.MONGO_URI, {
   ssl: true,
