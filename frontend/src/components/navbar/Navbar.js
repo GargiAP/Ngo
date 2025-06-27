@@ -39,7 +39,6 @@ const Navbar = ({ onLoginClick, onSigninClick }) => {
             <Link to="/profile" title="Profile">
               <img src={profileImg} alt="Profile" className="profile-icon" />
             </Link>
-            <button className="button logout-btn" onClick={handleLogout}>Logout</button>
           </>
         )}
       </div>
