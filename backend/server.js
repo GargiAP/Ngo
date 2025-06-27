@@ -11,7 +11,8 @@ app.use(express.json());
 
 const authRoutes = require('./routes/authRoutes');
 const eventRoutes = require('./routes/eventRoutes');
-
+const volunteerRoute = require('./routes/volunteerRoutes');
+app.use('/api', volunteerRoute);
 app.use('/api/auth', authRoutes);
 app.use('/api', eventRoutes);
 
