@@ -6,7 +6,7 @@ import {
   PlusSquare,
   GraduationCap
 } from "lucide-react";
-import defaultPfp from "../../assets/defaultPfp.jpg"; // ✅ Ensure this file exists
+import defaultPfp from "../../assets/defaultPfp.jpg"; 
 
 const VolunteerProfile = () => {
   const user = JSON.parse(localStorage.getItem("user")) || {};

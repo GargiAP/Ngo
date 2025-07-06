@@ -1,8 +1,8 @@
 import React from "react";
 import { LogOut, History, Settings, PlusSquare, GraduationCap } from "lucide-react";
-
+import defaultPfp from "../../assets/defaultPfp.jpg"; 
 const NGOProfile = ({ user }) => {
-  const avatarUrl = user.logo || "/placeholder/avatar.png";
+  const avatarUrl = user.logo || defaultPfp;
 
   return (
     <div className="px-4 py-8 sm:px-8 max-w-6xl mx-auto">
