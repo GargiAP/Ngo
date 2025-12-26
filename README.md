@@ -38,13 +38,14 @@ The application uses a centralized database hosted on **MongoDB Atlas** and foll
 - Git
 
 ### Clone the Repository
-git clone https://github.com/GargiAP/Ngo.git
-cd Ngo
+- git clone https://github.com/GargiAP/Ngo.git 
+- cd Ngo
 
 ### Frontend
-cd frontend 
-npm start
+- cd frontend 
+- npm start
 
 ### Backend 
-cd backend 
-npm run dev
+- cd backend 
+- npm run dev
+
